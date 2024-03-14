@@ -1,0 +1,37 @@
+[user]
+	email = leonmichalak6@gmail.com
+	name = Leon Michalak
+[pull]
+	ff = only
+[rebase]
+	autoStash = true
+[status]
+	showuntrackedfiles = all
+[fetch]
+	prune = true
+[init]
+	templatedir = ~/Desktop/leon/dev/git-hooks
+	defaultBranch = master
+[alias]
+   st = status
+   co = checkout
+   in = !git fetch && git log ..@{u}
+   out = !git fetch && git log @{u}..
+   today = "! git log --pretty=\"- %s \\`$(basename $(git remote get-url $(git remote))) [%S %h]\\`\" --author=$(git config user.email) --since='6am' `git branch --show-current` | sed 's/ *([^)]*#[0-9]*)//'"
+   ch = "! ~/Desktop/dev/git-utils/copy-hash.sh"
+[color "diff"]
+  new = 41
+  old = 203
+  # @@ -118, 8, +118 etc...
+  frag = 6
+  # function next to frag ^
+  func = 6
+  # header for each file (e.g. diff --git a/src/...)
+  meta = bold 4
+[color "status"]
+  added = 41
+  changed = 203
+  untracked = 203
+  deleted = 203
+[push]
+	followTags = true
