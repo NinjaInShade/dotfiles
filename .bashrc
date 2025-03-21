@@ -82,6 +82,14 @@ function cheat() {
     curl -sSL "https://cheat.sh/${1}"
 }
 
+# ------------- #
+#   keychain!   #
+# ------------- #
+
+/usr/bin/keychain $HOME/.ssh/id_rsa
+/usr/bin/keychain $HOME/.ssh/id_ed25519
+source $HOME/.keychain/$HOSTNAME-sh
+
 # ------------------------ #
 #   non-export variables   #
 # ------------------------ #
@@ -92,8 +100,12 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 #   export variables   #
 # -------------------- #
 
-export leon="$HOME/Desktop/leon"
-export dev="$HOME/Desktop/dev"
+# Personal
+export dev="$HOME/Dev"
+# Work
+export dc="$dev/dc"
+export DATACAP="$dev/dc"
+# Other
 export PATH="$HOME:/usr/lib/postgresql/14/bin:$PATH"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export NVM_DIR="$HOME/.nvm"

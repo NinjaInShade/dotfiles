@@ -17,8 +17,11 @@
    co = checkout
    in = !git fetch && git log ..@{u}
    out = !git fetch && git log @{u}..
+   bs = !echo MERGED && git branch -avv --color --merged | grep -v 'remotes/origin/HEAD' && echo "NOT MERGED" && git branch -avv --no-merged
    today = "! git log --pretty=\"- %s \\`$(basename $(git remote get-url $(git remote))) [%S %h]\\`\" --author=$(git config user.email) --since='6am' `git branch --show-current` | sed 's/ *([^)]*#[0-9]*)//'"
-   ch = "! ~/Desktop/dev/git-utils/copy-hash.sh"
+   pushf = git push --force-with-lease
+   ch = "! ~/Dev/git-utils/copy-hash.sh"
+   vdiff = difftool
 [color "diff"]
   new = 41
   old = 203
@@ -35,3 +38,10 @@
   deleted = 203
 [push]
 	followTags = true
+[diff]
+	tool = vimdiff
+[difftool]
+  prompt = false
+
+[includeIf "gitdir:~/Dev/dc/"]
+  path = ~/Dev/dc/.gitconfig
