@@ -34,3 +34,13 @@ As most likely some dotfiles will already exist, this normally causes stow to te
 Due to this being a git repo however, you can just quickly check what changed with `git diff`. If the changes are important, you can just commit them and push, or if not, restore the repo back to it's original state.
 
 Either way, the files have been correctly symlinked by stow and you're ready to go!
+
+## Adding new configs
+
+To add a new config file(s) to this repo:
+
+1) Move the config file you want to add here but maintaining it's directory structure from your home directory. For example, adding `~/.config/kitty/kitty.conf` would require you to make `.config/kitty/kitty.conf` inside this directory.
+2) Run `stow .` to create the new symlink
+3) Commit and push to the repo! :D
+
+

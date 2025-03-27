@@ -21,7 +21,7 @@
    today = "! git log --pretty=\"- %s \\`$(basename $(git remote get-url $(git remote))) [%S %h]\\`\" --author=$(git config user.email) --since='6am' `git branch --show-current` | sed 's/ *([^)]*#[0-9]*)//'"
    pushf = git push --force-with-lease
    ch = "! ~/Dev/git-utils/copy-hash.sh"
-   vdiff = difftool
+   xdiff = difftool --no-symlinks --dir-diff
 [color "diff"]
   new = 41
   old = 203
@@ -39,9 +39,16 @@
 [push]
 	followTags = true
 [diff]
-	tool = vimdiff
+  tool = kitty
+  guitool = kitty.gui
+  context = 10
 [difftool]
   prompt = false
+  trustExitCode = true
+[difftool "kitty"]
+  cmd = kitten diff $LOCAL $REMOTE
+[difftool "kitty.gui"]
+  cmd = kitten diff $LOCAL $REMOTE
 
 [includeIf "gitdir:~/Dev/dc/"]
   path = ~/Dev/dc/.gitconfig
