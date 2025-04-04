@@ -82,14 +82,6 @@ function cheat() {
     curl -sSL "https://cheat.sh/${1}"
 }
 
-# ------------- #
-#   keychain!   #
-# ------------- #
-
-/usr/bin/keychain $HOME/.ssh/id_rsa
-/usr/bin/keychain $HOME/.ssh/id_ed25519
-source $HOME/.keychain/$HOSTNAME-sh
-
 # ------------------------ #
 #   non-export variables   #
 # ------------------------ #
